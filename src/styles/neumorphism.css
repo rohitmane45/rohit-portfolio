@@ -1,0 +1,144 @@
+/* Neumorphism Design System */
+:root {
+  /* Light Theme Colors */
+  --neuro-bg-primary: #f0f0f3;
+  --neuro-bg-secondary: #e6e6e9;
+  --neuro-shadow-light: #ffffff;
+  --neuro-shadow-dark: #d1d1d4;
+  --neuro-text-primary: #2d3748;
+  --neuro-text-secondary: #4a5568;
+  --neuro-accent: #667eea;
+  --neuro-accent-light: #764ba2;
+  --neuro-success: #48bb78;
+  --neuro-warning: #ed8936;
+  --neuro-error: #f56565;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Colors */
+  --neuro-bg-primary: #2d3748;
+  --neuro-bg-secondary: #1a202c;
+  --neuro-shadow-light: #4a5568;
+  --neuro-shadow-dark: #1a1a1a;
+  --neuro-text-primary: #f7fafc;
+  --neuro-text-secondary: #e2e8f0;
+  --neuro-accent: #667eea;
+  --neuro-accent-light: #764ba2;
+  --neuro-success: #68d391;
+  --neuro-warning: #f6ad55;
+  --neuro-error: #fc8181;
+}
+
+/* Neumorphic Elements */
+.neuro-card {
+  background: var(--neuro-bg-primary);
+  border-radius: 20px;
+  box-shadow: 
+    8px 8px 16px var(--neuro-shadow-dark),
+    -8px -8px 16px var(--neuro-shadow-light);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neuro-card:hover {
+  box-shadow: 
+    12px 12px 24px var(--neuro-shadow-dark),
+    -12px -12px 24px var(--neuro-shadow-light);
+  transform: translateY(-2px);
+}
+
+.neuro-inset {
+  background: var(--neuro-bg-primary);
+  border-radius: 16px;
+  box-shadow: 
+    inset 4px 4px 8px var(--neuro-shadow-dark),
+    inset -4px -4px 8px var(--neuro-shadow-light);
+}
+
+.neuro-button {
+  background: var(--neuro-bg-primary);
+  border-radius: 12px;
+  box-shadow: 
+    4px 4px 8px var(--neuro-shadow-dark),
+    -4px -4px 8px var(--neuro-shadow-light);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.neuro-button:hover {
+  box-shadow: 
+    6px 6px 12px var(--neuro-shadow-dark),
+    -6px -6px 12px var(--neuro-shadow-light);
+}
+
+.neuro-button:active {
+  box-shadow: 
+    inset 2px 2px 4px var(--neuro-shadow-dark),
+    inset -2px -2px 4px var(--neuro-shadow-light);
+  transform: scale(0.98);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--neuro-accent), var(--neuro-accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effect */
+.glow-effect {
+  box-shadow: 
+    0 0 20px rgba(102, 126, 234, 0.3),
+    8px 8px 16px var(--neuro-shadow-dark),
+    -8px -8px 16px var(--neuro-shadow-light);
+}
+
+/* Progress Bar */
+.neuro-progress {
+  background: var(--neuro-bg-secondary);
+  border-radius: 10px;
+  box-shadow: 
+    inset 2px 2px 4px var(--neuro-shadow-dark),
+    inset -2px -2px 4px var(--neuro-shadow-light);
+  overflow: hidden;
+}
+
+.neuro-progress-fill {
+  background: linear-gradient(90deg, var(--neuro-accent), var(--neuro-accent-light));
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+  transition: width 1s ease-out;
+}
+
+/* Smooth Transitions */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .float-animation {
+    animation: none;
+  }
+}
