@@ -153,7 +153,7 @@ const HeroSection: React.FC = () => {
                   whileHover={{ scale: 1.05, color: 'var(--neuro-accent)' }}
                   className="transition-colors cursor-pointer"
                 >
-                  📧 drohitmane45@gmail.com
+                  📧 drohitmane07@gmail.com
                 </motion.span>
                 <motion.span 
                   whileHover={{ scale: 1.05, color: 'var(--neuro-accent)' }}
