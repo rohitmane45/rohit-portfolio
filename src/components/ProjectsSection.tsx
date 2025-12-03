@@ -35,28 +35,17 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: 3,
-      title: 'FloatChat: AI-Powered ARGO Ocean Data',
-      description: 'Developed an AI-powered conversational system for ARGO float data that enables users to query, explore, and visualize oceanographic information using natural language.',
+      title: 'AI-Powered Cyclone Prediction Using Deep Learning and Ocean Data',
+      description: 'Designed and implemented a multi-source deep learning framework that fuses ocean, atmospheric, and satellite data to predict cyclone formation, track, and intensity, improving early-warning lead time and forecast accuracy for disaster management applications.',
       icon: MessageSquare,
-      image: '/images/argo-ocean-data.png',
+      image: '/images/image.png',
       technologies: ['AI/ML', 'Natural Language Processing', 'Data Visualization', 'Oceanographic Data'],
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
       color: '#ff6b6b'
-    },
-    {
-      id: 4,
-      title: 'AetherChat Platform',
-      description: 'A production-ready, horizontally scalable chat system delivering AI-driven conversations, robust user management, and a cleanly decoupled backend–frontend architecture—perfect for learning, rapid prototyping, or evolving into an enterprise-grade conversational platform.',
-      icon: MessageSquare,
-      image: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=600&h=400&fit=crop',
-      technologies: ['AI/ML', 'Chat System', 'User Management', 'Scalable Architecture'],
-      liveUrl: '#',
-      githubUrl: '#',
-      featured: true,
-      color: '#43e97b'
     }
+
   ];
 
   return (

@@ -53,8 +53,8 @@ const ContactSection: React.FC = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'drohitmane45@gmail.com',
-      href: 'mailto:drohitmane45@gmail.com',
+      value: 'drohitmane07@gmail.com',
+      href: 'mailto:drohitmane07@gmail.com',
       color: '#ea4335'
     },
     {
@@ -166,7 +166,7 @@ const ContactSection: React.FC = () => {
             {/* Resume Download Button */}
             <motion.div variants={staggerItem} className="pt-6">
               <motion.a
-                href="/assets/Rohit Resume.pdf"
+                href="/assets/Rohit_Mane_Resume.pdf"
                 download="Rohit_Mane_Resume.pdf"
                 whileHover={{ 
                   scale: 1.05,

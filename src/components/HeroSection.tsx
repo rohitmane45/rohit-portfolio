@@ -236,12 +236,12 @@ const HeroSection: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="relative z-10"
               >
-                <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
+                <div className="w-128 h-128 md:w-80 md:h-80 lg:w-96 lg:h-96 neuro-card rounded-full overflow-hidden glow-effect">
                   <img
-                    src="/images/ro%20image%20(2).png"
+                    src="/images/roo.jpg"
                     alt="Rohit Mane"
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: "center 25%", transform: "scale(1.15)" }}
+                    className="h-full w-full object-cover object-center"
+                    style={{ objectPosition: "center 50%", transform: "scale(1.15)" }}
                   />
                 </div>
               </motion.div>
