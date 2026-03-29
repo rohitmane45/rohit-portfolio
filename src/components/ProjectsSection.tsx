@@ -35,15 +35,27 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: 3,
-      title: 'AI-Powered Cyclone Prediction Using Deep Learning and Ocean Data',
-      description: 'Designed and implemented a multi-source deep learning framework that fuses ocean, atmospheric, and satellite data to predict cyclone formation, track, and intensity, improving early-warning lead time and forecast accuracy for disaster management applications.',
+      title: 'RI for Tropical Cyclone',
+      description: 'Built a deep learning framework focused on rapid intensification (RI) prediction for tropical cyclones by fusing oceanic, atmospheric, and satellite signals, improving lead-time insights for early warning and operational decision support.',
       icon: MessageSquare,
       image: '/images/image.png',
-      technologies: ['AI/ML', 'Natural Language Processing', 'Data Visualization', 'Oceanographic Data'],
+      technologies: ['Deep Learning', 'Tropical Cyclone RI', 'Satellite Data', 'Ocean-Atmospheric Features'],
       liveUrl: '#',
       githubUrl: '#',
       featured: true,
       color: '#ff6b6b'
+    },
+    {
+      id: 4,
+      title: 'Movie Success Prediction',
+      description: 'Developed a machine learning pipeline to predict movie performance using historical metadata, genre trends, release timing, and cast-related signals to support data-driven production and marketing decisions.',
+      icon: Video,
+      image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&h=400&fit=crop',
+      technologies: ['Machine Learning', 'Feature Engineering', 'Pandas', 'scikit-learn'],
+      liveUrl: '#',
+      githubUrl: '#',
+      featured: true,
+      color: '#f59e0b'
     }
 
   ];

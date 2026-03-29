@@ -166,8 +166,8 @@ const ContactSection: React.FC = () => {
             {/* Resume Download Button */}
             <motion.div variants={staggerItem} className="pt-6">
               <motion.a
-                href="/assets/Rohit_Mane_Resume.pdf"
-                download="Rohit_Mane_Resume.pdf"
+                href="/assets/TE%20Rohit%20Mane%20Resume.pdf"
+                download="TE Rohit Mane Resume.pdf"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)'
