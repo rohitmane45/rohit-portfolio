@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,12 +14,25 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   background-color: var(--neuro-bg-primary);
   color: var(--neuro-text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark-mode compatibility layer for glass surfaces used in section cards */
+[data-theme="dark"] [class*="bg-white"] {
+  background-color: rgba(15, 23, 42, 0.72) !important;
+}
+
+[data-theme="dark"] [class*="border-white"] {
+  border-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+[data-theme="dark"] [class*="shadow-"] {
+  box-shadow: 0 14px 35px rgba(2, 6, 23, 0.35);
 }
 
 /* Scrollbar Styling */

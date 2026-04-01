@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Download } from 'lucide-react';
-import { staggerContainer, staggerItem, inputFocusVariants } from '@/lib/animations';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, Sparkles } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -86,76 +85,69 @@ const ContactSection: React.FC = () => {
       href: 'https://linkedin.com/in/rohitmane45',
       color: '#0077B5'
     },
-    {
-      icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com/rohitmane45',
-      color: '#1DA1F2'
-    },
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 bg-[var(--neuro-bg-secondary)]">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="relative overflow-hidden px-6 py-20 sm:px-8 lg:px-12">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(102,126,234,0.12),transparent_35%),linear-gradient(180deg,var(--neuro-bg-secondary),var(--neuro-bg-primary))]" />
+
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
           ref={ref}
-          variants={staggerContainer}
-          initial="initial"
-          animate={isInView ? "animate" : "initial"}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.55 }}
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <motion.h2 variants={staggerItem} className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[rgba(102,126,234,0.35)] bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--neuro-text-secondary)] backdrop-blur">
+            <Sparkles className="h-3.5 w-3.5" />
+            Contact
+          </p>
+
+          <h2 className="mb-5 text-4xl font-semibold leading-tight text-[var(--neuro-text-primary)] sm:text-5xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             Get In Touch
-          </motion.h2>
-          <motion.p variants={staggerItem} className="text-lg text-[var(--neuro-text-secondary)] max-w-3xl mx-auto">
-            Ready to collaborate on exciting projects? Let's connect and build something amazing together. 
-            I'm always open to discussing new opportunities and innovative ideas.
-          </motion.p>
+          </h2>
+          <p className="text-base leading-relaxed text-[var(--neuro-text-secondary)] sm:text-lg">
+            Open to internships, collaborations, and product-focused work. If your idea needs thoughtful AI execution,
+            let us connect.
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
           <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            className="space-y-8"
+            initial={{ opacity: 0, x: -16 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="space-y-6"
           >
-            <motion.div variants={staggerItem}>
-              <h3 className="text-2xl font-semibold text-[var(--neuro-text-primary)] mb-6">
+            <div className="rounded-3xl border border-white/70 bg-white/75 p-7 shadow-[0_15px_40px_rgba(15,23,42,0.1)] backdrop-blur">
+              <h3 className="mb-4 text-3xl font-semibold text-[var(--neuro-text-primary)]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 Let's Connect
               </h3>
-              <p className="text-[var(--neuro-text-secondary)] mb-8 leading-relaxed">
-                I'm currently pursuing my B.E. in AI & Data Science and actively seeking internship opportunities, 
-                collaboration projects, and freelance work. Whether you have a project idea, job opportunity, 
-                or just want to chat about technology, I'd love to hear from you!
+              <p className="text-sm leading-relaxed text-[var(--neuro-text-secondary)] sm:text-base">
+                Share your project, internship opportunity, or collaboration idea. I usually respond quickly with next steps.
               </p>
-            </motion.div>
+            </div>
 
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
                 return (
                   <motion.a
                     key={index}
-                    variants={staggerItem}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                    transition={{ duration: 0.35, delay: 0.1 + index * 0.07 }}
                     href={info.href}
-                    whileHover={{ 
-                      scale: 1.02,
-                      boxShadow: `0 10px 25px ${info.color}40`
-                    }}
-                    className="neuro-card p-6 flex items-center space-x-4 block hover:glow-effect transition-all duration-300"
+                    className="block rounded-2xl border border-white/70 bg-white/75 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5"
                   >
-                    <div className="neuro-button p-3">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
                       <Icon className="w-6 h-6" style={{ color: info.color }} />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-[var(--neuro-text-primary)]">
-                        {info.label}
                       </div>
-                      <div className="text-[var(--neuro-text-secondary)]">
-                        {info.value}
+                      <div>
+                        <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--neuro-text-secondary)]">{info.label}</div>
+                        <div className="text-sm font-medium text-[var(--neuro-text-primary)] sm:text-base">{info.value}</div>
                       </div>
                     </div>
                   </motion.a>
@@ -163,29 +155,32 @@ const ContactSection: React.FC = () => {
               })}
             </div>
 
-            {/* Resume Download Button */}
-            <motion.div variants={staggerItem} className="pt-6">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+              transition={{ duration: 0.35, delay: 0.32 }}
+              className="pt-2"
+            >
               <motion.a
-                href="/assets/TE%20Rohit%20Mane%20Resume.pdf"
-                download="TE Rohit Mane Resume.pdf"
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: '0 15px 30px rgba(102, 126, 234, 0.4)'
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="neuro-button px-6 py-4 text-lg font-medium text-[var(--neuro-text-primary)] glow-effect flex items-center space-x-3 w-full justify-center"
+                href="/assets/Rohit_s_Engineering_Resume%20ATS.pdf"
+                download="Rohit_s_Engineering_Resume ATS.pdf"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--neuro-text-primary)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:-translate-y-0.5"
               >
                 <Download className="w-5 h-5" />
                 <span>Download Resume</span>
               </motion.a>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div variants={staggerItem} className="pt-8">
-              <h4 className="text-lg font-semibold text-[var(--neuro-text-primary)] mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+              transition={{ duration: 0.35, delay: 0.38 }}
+              className="pt-4"
+            >
+              <h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--neuro-text-secondary)]">
                 Follow Me
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex gap-3">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon;
                   return (
@@ -194,16 +189,10 @@ const ContactSection: React.FC = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ 
-                        scale: 1.2, 
-                        y: -5,
-                        boxShadow: `0 10px 25px ${social.color}40`
-                      }}
-                      whileTap={{ scale: 0.9 }}
-                      className="neuro-button p-4 hover:glow-effect transition-all duration-300"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/80 shadow-sm transition-all duration-300 hover:-translate-y-0.5"
                       aria-label={social.label}
                     >
-                      <Icon className="w-6 h-6" style={{ color: social.color }} />
+                      <Icon className="w-5 h-5" style={{ color: social.color }} />
                     </motion.a>
                   );
                 })}
@@ -211,14 +200,13 @@ const ContactSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
+            initial={{ opacity: 0, x: 16 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
+            transition={{ duration: 0.5, delay: 0.12 }}
           >
-            <motion.div variants={staggerItem} className="neuro-card p-8">
-              <h3 className="text-2xl font-semibold text-[var(--neuro-text-primary)] mb-6">
+            <div className="rounded-3xl border border-white/70 bg-white/80 p-7 shadow-[0_16px_45px_rgba(15,23,42,0.1)] backdrop-blur md:p-8">
+              <h3 className="mb-6 text-3xl font-semibold text-[var(--neuro-text-primary)]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 Send a Message
               </h3>
 
@@ -236,16 +224,13 @@ const ContactSection: React.FC = () => {
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div variants={staggerItem}>
+                  <div>
                     <label className="block text-sm font-medium text-[var(--neuro-text-primary)] mb-2">
                       Name *
                     </label>
-                    <motion.input
-                      variants={inputFocusVariants}
-                      whileFocus="focus"
-                      initial="rest"
+                    <input
                       {...register('name', { required: 'Name is required' })}
-                      className="w-full px-4 py-3 neuro-inset rounded-lg bg-transparent text-[var(--neuro-text-primary)] focus:outline-none"
+                      className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
                       placeholder="Your name"
                     />
                     {errors.name && (
@@ -253,16 +238,13 @@ const ContactSection: React.FC = () => {
                         {errors.name.message}
                       </p>
                     )}
-                  </motion.div>
+                  </div>
 
-                  <motion.div variants={staggerItem}>
+                  <div>
                     <label className="block text-sm font-medium text-[var(--neuro-text-primary)] mb-2">
                       Email *
                     </label>
-                    <motion.input
-                      variants={inputFocusVariants}
-                      whileFocus="focus"
-                      initial="rest"
+                    <input
                       type="email"
                       {...register('email', {
                         required: 'Email is required',
@@ -271,7 +253,7 @@ const ContactSection: React.FC = () => {
                           message: 'Invalid email address',
                         },
                       })}
-                      className="w-full px-4 py-3 neuro-inset rounded-lg bg-transparent text-[var(--neuro-text-primary)] focus:outline-none"
+                      className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
                       placeholder="your.email@example.com"
                     />
                     {errors.email && (
@@ -279,19 +261,16 @@ const ContactSection: React.FC = () => {
                         {errors.email.message}
                       </p>
                     )}
-                  </motion.div>
+                  </div>
                 </div>
 
-                <motion.div variants={staggerItem}>
+                <div>
                   <label className="block text-sm font-medium text-[var(--neuro-text-primary)] mb-2">
                     Subject *
                   </label>
-                  <motion.input
-                    variants={inputFocusVariants}
-                    whileFocus="focus"
-                    initial="rest"
+                  <input
                     {...register('subject', { required: 'Subject is required' })}
-                    className="w-full px-4 py-3 neuro-inset rounded-lg bg-transparent text-[var(--neuro-text-primary)] focus:outline-none"
+                    className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
                     placeholder="What's this about?"
                   />
                   {errors.subject && (
@@ -299,19 +278,16 @@ const ContactSection: React.FC = () => {
                       {errors.subject.message}
                     </p>
                   )}
-                </motion.div>
+                </div>
 
-                <motion.div variants={staggerItem}>
+                <div>
                   <label className="block text-sm font-medium text-[var(--neuro-text-primary)] mb-2">
                     Message *
                   </label>
-                  <motion.textarea
-                    variants={inputFocusVariants}
-                    whileFocus="focus"
-                    initial="rest"
+                  <textarea
                     {...register('message', { required: 'Message is required' })}
                     rows={5}
-                    className="w-full px-4 py-3 neuro-inset rounded-lg bg-transparent text-[var(--neuro-text-primary)] focus:outline-none resize-none"
+                    className="w-full resize-none rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
                     placeholder="Tell me about your project or opportunity..."
                   />
                   {errors.message && (
@@ -319,16 +295,16 @@ const ContactSection: React.FC = () => {
                       {errors.message.message}
                     </p>
                   )}
-                </motion.div>
+                </div>
 
-                <motion.div variants={staggerItem}>
-                  <motion.button
+                <div>
+                  <button
                     type="submit"
                     disabled={isSubmitting}
-                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                    className={`w-full neuro-button px-6 py-4 text-lg font-medium text-[var(--neuro-text-primary)] flex items-center justify-center space-x-2 ${
-                      isSubmitting ? 'opacity-70 cursor-not-allowed' : 'glow-effect'
+                    className={`flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 ${
+                      isSubmitting
+                        ? 'cursor-not-allowed bg-[var(--neuro-text-secondary)] text-white/85'
+                        : 'bg-[var(--neuro-text-primary)] text-white hover:-translate-y-0.5'
                     }`}
                   >
                     {isSubmitting ? (
@@ -343,10 +319,10 @@ const ContactSection: React.FC = () => {
                         <span>Send Message</span>
                       </>
                     )}
-                  </motion.button>
-                </motion.div>
+                  </button>
+                </div>
               </form>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

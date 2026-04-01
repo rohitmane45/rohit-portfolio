@@ -40,46 +40,46 @@ const Navigation: React.FC = () => {
       initial="hidden"
       animate="visible"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-2' : 'py-4'
+        isScrolled ? 'py-3' : 'py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          className={`neuro-card px-6 py-3 transition-all duration-300 ${
-            isScrolled ? 'backdrop-blur-md bg-opacity-90' : ''
+          className={`rounded-[1.7rem] border border-white/70 px-5 py-3 shadow-[0_12px_34px_rgba(15,23,42,0.10)] backdrop-blur-xl transition-all duration-300 sm:px-6 ${
+            isScrolled ? 'bg-white/82' : 'bg-white/72'
           }`}
         >
           <div className="flex justify-between items-center">
-            {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="text-xl font-bold gradient-text cursor-pointer"
+              className="cursor-pointer text-3xl font-semibold leading-none text-[var(--neuro-text-primary)]"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
               onClick={() => scrollToSection('hero')}
             >
               Rohit Mane
             </motion.div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center gap-3">
+              <div className="flex items-center gap-1 rounded-full border border-[rgba(102,126,234,0.18)] bg-white/80 px-2 py-1">
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
-                  whileHover={{ y: -2 }}
+                  whileHover={{ y: -1 }}
                   whileTap={{ y: 0 }}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-sm font-medium text-[var(--neuro-text-secondary)] hover:text-[var(--neuro-accent)] transition-colors duration-200"
+                  className="rounded-full px-4 py-2 text-sm font-semibold text-[var(--neuro-text-secondary)] transition-all duration-200 hover:bg-[rgba(102,126,234,0.12)] hover:text-[var(--neuro-accent)]"
                 >
                   {item.label}
                 </motion.button>
               ))}
+              </div>
               
-              {/* Theme Toggle */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
-                className="neuro-button p-2"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/92 shadow-[0_8px_20px_rgba(15,23,42,0.12)]"
                 aria-label="Toggle theme"
               >
                 {theme === 'light' ? (
@@ -90,13 +90,12 @@ const Navigation: React.FC = () => {
               </motion.button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-4">
+            <div className="md:hidden flex items-center space-x-3">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
-                className="neuro-button p-2"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/80 bg-white/90 shadow-sm"
                 aria-label="Toggle theme"
               >
                 {theme === 'light' ? (
@@ -110,7 +109,7 @@ const Navigation: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="neuro-button p-2"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/80 bg-white/90 shadow-sm"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
@@ -122,7 +121,6 @@ const Navigation: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
           <motion.div
             initial={false}
             animate={{
@@ -132,13 +130,13 @@ const Navigation: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden overflow-hidden"
           >
-            <div className="pt-4 pb-2 space-y-2">
+            <div className="mt-4 space-y-2 rounded-2xl border border-[rgba(102,126,234,0.2)] bg-white/86 p-3">
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
                   whileHover={{ x: 5 }}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-4 py-2 text-sm font-medium text-[var(--neuro-text-secondary)] hover:text-[var(--neuro-accent)] transition-colors duration-200"
+                  className="block w-full rounded-xl px-4 py-2 text-left text-sm font-medium text-[var(--neuro-text-secondary)] transition-colors duration-200 hover:bg-[rgba(102,126,234,0.1)] hover:text-[var(--neuro-accent)]"
                 >
                   {item.label}
                 </motion.button>
