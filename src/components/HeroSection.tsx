@@ -81,12 +81,13 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.55, delay: 0.4 }}
           className="flex flex-col gap-4 sm:flex-row"
         >
-          <button
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          <motion.a
+            href="/assets/Rohit_s_Engineering_Resume%20ATS.pdf"
+            download="Rohit_s_Engineering_Resume ATS.pdf"
             className="rounded-full bg-[var(--neuro-text-primary)] px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(17,24,39,0.25)]"
           >
-            View Projects
-          </button>
+            Resume
+          </motion.a>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="rounded-full border border-[var(--neuro-text-secondary)]/35 bg-white/50 px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--neuro-text-primary)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/80"
