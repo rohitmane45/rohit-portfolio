@@ -60,6 +60,20 @@ const ProjectsSection: React.FC = () => {
       githubUrl: 'https://github.com/rohitmane45/Movie-Success-Prediction-and-Sentiment-Study',
       featured: true,
       color: '#f59e0b'
+    },
+    {
+      id: 5,
+      title: 'CosmoSafe — The Cosmetic Analyzer (Flutter App)',
+      shortDescription: 'AI-powered cosmetic analyzer built with Flutter',
+      description: 'An intelligent Flutter application that analyzes cosmetic using Vision OCR and Gemini AI. It performs multi-jurisdiction regulatory analysis to detect toxic ingredients and provides personalized safety recommendations.',
+      image: '/images/Cosmosafe%20image.png',
+      icon: Smartphone,
+      technologies: ['Flutter', 'Dart', 'Gemini AI', 'Vision OCR'],
+      githubUrl: 'https://github.com/rohitmane45/Comsosafe',
+      liveUrl: '#',
+      featured: true,
+      color: '#10b981',
+      impact: 'Empowers users to make informed, safe purchasing decisions instantly'
     }
 
   ];
