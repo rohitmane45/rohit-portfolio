@@ -2,7 +2,19 @@ import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, Sparkles } from 'lucide-react';
+
+// ─── EmailJS Configuration ───────────────────────────────────────────
+// 1. Go to https://www.emailjs.com/ and create a free account
+// 2. Add an Email Service (e.g. Gmail) → copy the Service ID
+// 3. Create an Email Template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
+// 4. Copy your Public Key from Account → API Keys
+// 5. Replace the values below:
+const EMAILJS_SERVICE_ID = 'service_rhw65o9';   // ← updated from your screenshot
+const EMAILJS_TEMPLATE_ID = 'template_nv7o1qp';   // ← updated with correct ID
+const EMAILJS_PUBLIC_KEY = 'HnU91gWFDVDZ1Ujmq';      // ← updated
+// ─────────────────────────────────────────────────────────────────────
 
 interface FormData {
   name: string;
@@ -16,6 +28,12 @@ const ContactSection: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  // Initialize EmailJS
+  React.useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
 
   const {
     register,
@@ -26,26 +44,34 @@ const ContactSection: React.FC = () => {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(data.subject);
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
-    );
-    const mailtoLink = `mailto:drohitmane45@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
-    // Simulate form submission delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    reset();
-    
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setSubmitError('');
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: data.name,
+          email: data.email,
+          title: data.subject,
+          message: data.message,
+          to_name: 'Rohit',
+          to_email: 'drohitmane07@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setIsSubmitted(true);
+      reset();
+      setTimeout(() => setIsSubmitted(false), 4000);
+    } catch (error: any) {
+      // Detailed error logging to find the exact cause
+      console.error('Full EmailJS Error Object:', error);
+      const errorMsg = error?.text || error?.message || 'Failed to send message.';
+      setSubmitError(`Error: ${errorMsg}. Please try again or email directly.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -217,7 +243,19 @@ const ContactSection: React.FC = () => {
                   className="mb-6 p-4 neuro-inset rounded-lg"
                 >
                   <p className="text-[var(--neuro-success)] font-medium">
-                    Thank you! Your message has been sent successfully.
+                    ✓ Thank you! Your message has been sent successfully.
+                  </p>
+                </motion.div>
+              )}
+
+              {submitError && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 rounded-lg border border-red-200 bg-red-50"
+                >
+                  <p className="text-red-600 font-medium text-sm">
+                    {submitError}
                   </p>
                 </motion.div>
               )}
