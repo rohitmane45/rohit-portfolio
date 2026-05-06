@@ -28,6 +28,7 @@ const ContactSection: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [lastResponseId, setLastResponseId] = useState('');
   const [submitError, setSubmitError] = useState('');
 
   // Initialize EmailJS
@@ -45,9 +46,10 @@ const ContactSection: React.FC = () => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setSubmitError('');
+    setLastResponseId('');
 
     try {
-      await emailjs.send(
+      const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
@@ -61,9 +63,11 @@ const ContactSection: React.FC = () => {
         EMAILJS_PUBLIC_KEY
       );
 
+      console.log('EmailJS Success Response:', response);
+      setLastResponseId(response.status === 200 ? 'Sent OK' : `Status: ${response.status}`);
       setIsSubmitted(true);
       reset();
-      setTimeout(() => setIsSubmitted(false), 4000);
+      setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error: any) {
       // Detailed error logging to find the exact cause
       console.error('Full EmailJS Error Object:', error);
@@ -243,7 +247,7 @@ const ContactSection: React.FC = () => {
                   className="mb-6 p-4 neuro-inset rounded-lg"
                 >
                   <p className="text-[var(--neuro-success)] font-medium">
-                    ✓ Thank you! Your message has been sent successfully.
+                    ✓ Thank you! Your message has been sent successfully. ({lastResponseId})
                   </p>
                 </motion.div>
               )}
