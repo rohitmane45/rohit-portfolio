@@ -84,13 +84,13 @@ const HeroSection: React.FC = () => {
           <motion.a
             href="/assets/Rohit_s_Engineering_Resume_.pdf"
             download="Rohit_s_Engineering_Resume_.pdf"
-            className="rounded-full bg-[var(--neuro-text-primary)] px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(17,24,39,0.25)]"
+            className="rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white shadow-[0_4px_15px_rgba(102,126,234,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(102,126,234,0.45)]"
           >
             Resume
           </motion.a>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="rounded-full border border-[var(--neuro-text-secondary)]/35 bg-white/50 px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--neuro-text-primary)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/80"
+            className="rounded-full border border-[rgba(102,126,234,0.35)] bg-white/50 px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--neuro-text-primary)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/80 dark:bg-white/10 dark:hover:bg-white/20"
           >
             Contact Me
           </button>

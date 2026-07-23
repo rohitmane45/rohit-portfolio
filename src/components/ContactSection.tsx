@@ -129,7 +129,7 @@ const ContactSection: React.FC = () => {
           transition={{ duration: 0.55 }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[rgba(102,126,234,0.35)] bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--neuro-text-secondary)] backdrop-blur">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[rgba(102,126,234,0.35)] bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--neuro-text-secondary)] backdrop-blur dark:bg-white/10">
             <Sparkles className="h-3.5 w-3.5" />
             Contact
           </p>
@@ -150,7 +150,7 @@ const ContactSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.08 }}
             className="space-y-6"
           >
-            <div className="rounded-3xl border border-white/70 bg-white/75 p-7 shadow-[0_15px_40px_rgba(15,23,42,0.1)] backdrop-blur">
+            <div className="rounded-3xl border border-white/70 bg-white/75 p-7 shadow-[0_15px_40px_rgba(15,23,42,0.1)] backdrop-blur dark:border-white/10 dark:bg-white/5">
               <h3 className="mb-4 text-3xl font-semibold text-[var(--neuro-text-primary)]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 Let's Connect
               </h3>
@@ -169,10 +169,10 @@ const ContactSection: React.FC = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
                     transition={{ duration: 0.35, delay: 0.1 + index * 0.07 }}
                     href={info.href}
-                    className="block rounded-2xl border border-white/70 bg-white/75 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5"
+                    className="block rounded-2xl border border-white/70 bg-white/75 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm dark:bg-white/10">
                       <Icon className="w-6 h-6" style={{ color: info.color }} />
                       </div>
                       <div>
@@ -194,7 +194,7 @@ const ContactSection: React.FC = () => {
               <motion.a
                 href="/assets/Rohit_s_Engineering_Resume_.pdf"
                 download="Rohit_s_Engineering_Resume_.pdf"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--neuro-text-primary)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:-translate-y-0.5"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white shadow-[0_4px_15px_rgba(102,126,234,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(102,126,234,0.45)]"
               >
                 <Download className="w-5 h-5" />
                 <span>Download Resume</span>
@@ -219,7 +219,7 @@ const ContactSection: React.FC = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/80 shadow-sm transition-all duration-300 hover:-translate-y-0.5"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/80 shadow-sm transition-all duration-300 hover:-translate-y-0.5 dark:border-white/15 dark:bg-white/10"
                       aria-label={social.label}
                     >
                       <Icon className="w-5 h-5" style={{ color: social.color }} />
@@ -235,7 +235,7 @@ const ContactSection: React.FC = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
             transition={{ duration: 0.5, delay: 0.12 }}
           >
-            <div className="rounded-3xl border border-white/70 bg-white/80 p-7 shadow-[0_16px_45px_rgba(15,23,42,0.1)] backdrop-blur md:p-8">
+            <div className="rounded-3xl border border-white/70 bg-white/80 p-7 shadow-[0_16px_45px_rgba(15,23,42,0.1)] backdrop-blur md:p-8 dark:border-white/10 dark:bg-white/5">
               <h3 className="mb-6 text-3xl font-semibold text-[var(--neuro-text-primary)]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 Send a Message
               </h3>
@@ -256,9 +256,9 @@ const ContactSection: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 rounded-lg border border-red-200 bg-red-50"
+                  className="mb-6 p-4 rounded-lg border border-red-200 bg-red-50 dark:border-red-500/30 dark:bg-red-500/10"
                 >
-                  <p className="text-red-600 font-medium text-sm">
+                  <p className="text-red-600 font-medium text-sm dark:text-red-400">
                     {submitError}
                   </p>
                 </motion.div>
@@ -272,7 +272,7 @@ const ContactSection: React.FC = () => {
                     </label>
                     <input
                       {...register('name', { required: 'Name is required' })}
-                      className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
+                      className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none dark:bg-white/5 dark:border-white/10"
                       placeholder="Your name"
                     />
                     {errors.name && (
@@ -295,7 +295,7 @@ const ContactSection: React.FC = () => {
                           message: 'Invalid email address',
                         },
                       })}
-                      className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
+                      className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none dark:bg-white/5 dark:border-white/10"
                       placeholder="your.email@example.com"
                     />
                     {errors.email && (
@@ -312,7 +312,7 @@ const ContactSection: React.FC = () => {
                   </label>
                   <input
                     {...register('subject', { required: 'Subject is required' })}
-                    className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
+                    className="w-full rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none dark:bg-white/5 dark:border-white/10"
                     placeholder="What's this about?"
                   />
                   {errors.subject && (
@@ -329,7 +329,7 @@ const ContactSection: React.FC = () => {
                   <textarea
                     {...register('message', { required: 'Message is required' })}
                     rows={5}
-                    className="w-full resize-none rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none"
+                    className="w-full resize-none rounded-xl border border-[rgba(102,126,234,0.22)] bg-white px-4 py-3 text-[var(--neuro-text-primary)] focus:border-[var(--neuro-accent)] focus:outline-none dark:bg-white/5 dark:border-white/10"
                     placeholder="Tell me about your project or opportunity..."
                   />
                   {errors.message && (
@@ -346,7 +346,7 @@ const ContactSection: React.FC = () => {
                     className={`flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] transition-all duration-300 ${
                       isSubmitting
                         ? 'cursor-not-allowed bg-[var(--neuro-text-secondary)] text-white/85'
-                        : 'bg-[var(--neuro-text-primary)] text-white hover:-translate-y-0.5'
+                        : 'bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white shadow-[0_4px_15px_rgba(102,126,234,0.4)] hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(102,126,234,0.45)]'
                     }`}
                   >
                     {isSubmitting ? (
