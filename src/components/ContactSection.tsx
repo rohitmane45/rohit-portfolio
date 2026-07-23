@@ -192,8 +192,8 @@ const ContactSection: React.FC = () => {
               className="pt-2"
             >
               <motion.a
-                href="/assets/Rohit%20Mane%20Engineering%20Resume.pdf"
-                download="Rohit Mane Engineering Resume.pdf"
+                href="/assets/Rohit_s_Engineering_Resume_.pdf"
+                download="Rohit_s_Engineering_Resume_.pdf"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--neuro-text-primary)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-all duration-300 hover:-translate-y-0.5"
               >
                 <Download className="w-5 h-5" />
