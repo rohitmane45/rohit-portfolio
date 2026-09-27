@@ -82,8 +82,8 @@ const HeroSection: React.FC = () => {
           className="flex flex-col gap-4 sm:flex-row"
         >
           <motion.a
-            href="/assets/Rohit Mane Final Year Resume.pdf"
-            download="Rohit_Mane_Final_Year_Resume.pdf"
+            href="/assets/Rohit ATS RESUME FY.pdf"
+            download="Rohit_ATS_RESUME_FY.pdf"
             className="rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white shadow-[0_4px_15px_rgba(102,126,234,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(102,126,234,0.45)]"
           >
             Resume
