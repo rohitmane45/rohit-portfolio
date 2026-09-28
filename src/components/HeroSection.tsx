@@ -40,9 +40,9 @@ const HeroSection: React.FC = () => {
           <div className="absolute inset-0 rounded-full bg-[linear-gradient(135deg,rgba(102,126,234,0.35),rgba(118,75,162,0.18))] blur-xl" />
           <div className="relative h-52 w-52 overflow-hidden rounded-full border border-white/80 bg-[var(--neuro-bg-primary)] p-2 shadow-[0_25px_80px_rgba(17,24,39,0.22)] sm:h-60 sm:w-60">
             <img
-              src="/images/roo.jpg"
+              src="/images/rohitpic.png"
               alt="Rohit Mane"
-              className="h-full w-full rounded-full object-cover object-center"
+              className="h-full w-full rounded-full object-cover object-[center_24%]"
             />
           </div>
         </motion.div>

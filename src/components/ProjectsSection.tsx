@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Bot, Smartphone, Video, MessageSquare, Sparkles } from 'lucide-react';
+import { ExternalLink, Github, Bot, Smartphone, Video, MessageSquare, Sparkles, Mail } from 'lucide-react';
 
 const ProjectsSection: React.FC = () => {
   const ref = useRef(null);
@@ -74,7 +74,22 @@ const ProjectsSection: React.FC = () => {
       featured: true,
       color: '#10b981',
       impact: 'Empowers users to make informed, safe purchasing decisions instantly'
+    },
+    {
+      id: 6, // Update with your next available ID
+      title: 'Smart Email Agent — Autonomous AI Inbox Manager',
+      shortDescription: 'AI-powered autonomous email triaging and automation system',
+      description: 'An autonomous Node.js agent that securely monitors multiple Gmail accounts and uses Groq/Gemini AI to analyze incoming emails. It automatically categorizes urgency, extracts and schedules Google Calendar events, drafts contextual auto-replies, and sends real-time Telegram alerts for critical messages, all controllable via a secure glassmorphism web dashboard.',
+      image: '/images/SEA.png',
+      icon: Mail, // Assuming you have a Mail or Bot icon imported from lucide-react or similar
+      technologies: ['Node.js', 'Express', 'Groq AI', 'Gemini AI', 'Google OAuth/APIs', 'LibSQL (Turso)', 'Telegram API'],
+      githubUrl: 'https://github.com/rohitmane45/smart-email-agent',
+      liveUrl: '#', // Add your Render URL here if you want it public (don't forget they need the password!)
+      featured: true,
+      color: '#6366f1', // Indigo color that matches the dashboard's accent gradient
+      impact: 'Eliminates inbox fatigue by autonomously triaging emails, saving hours of manual organization and ensuring critical messages are never missed.'
     }
+
 
   ];
 

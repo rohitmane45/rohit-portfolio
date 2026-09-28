@@ -11,27 +11,27 @@ const ExperienceSection: React.FC = () => {
   const experiences = [
     {
       id: 1,
-      title: 'Data Science Intern',
-      organization: 'CodeWithHarry',
-      period: 'Present',
+      title: 'Future AI Engineer Intern',
+      organization: 'Compucom',
+      period: '2026',
       location: 'Remote',
-      type: 'Internship',
+      type: 'Professional',
       icon: Briefcase,
-      color: '#667eea',
-      description: 'Building practical data science workflows and project-based analytics solutions.',
-      skills: ['Python', 'Pandas', 'NumPy']
+      color: '#ff6b6b',
+      description: 'Worked on AI agents, improving agent functionality and reliability while collaborating on Jira tickets and enterprise AI workflows.',
+      skills: ['AI Agents', 'Python', 'Jira', 'AI Workflows']
     },
     {
       id: 2,
-      title: 'Design Co-Lead',
-      organization: 'S4DS (Society for Data Science)',
-      period: 'Present',
-      location: 'College',
-      type: 'Leadership',
-      icon: Palette,
+      title: 'AI/ML Intern',
+      organization: 'Celebal Technologies',
+      period: '2026',
+      location: 'Remote',
+      type: 'Professional',
+      icon: Briefcase,
       color: '#4ecdc4',
-      description: 'Leading design direction and web presence for the campus data science society.',
-      skills: ['UI/UX', 'Team Leadership', 'Content Design']
+      description: 'Worked on AI/ML solutions, gaining practical experience in model development, data analysis, and real-world AI applications.',
+      skills: ['Python', 'Machine Learning', 'Data Analysis', 'AI']
     },
     {
       id: 3,
